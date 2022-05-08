@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <h1>Dota Shuffle Players</h1>
+
+    <div>
+      <h2>Insert player</h2>
+      <form id="player_form" action="">
+        <label for="player_name">Player Name</label>
+        <input type="text" name="player_name" id="player_name" />
+
+        <label for="player_medal">Player Medal</label>
+        <select name="player_medal" id="player_medal">
+          <option value="herald">Herald</option>
+          <option value="guardian">Guardian</option>
+          <option value="crusader">Crusader</option>
+          <option value="archon">Archon</option>
+          <option value="legend">Legend</option>
+          <option value="ancient">Ancient</option>
+          <option value="divine">Divine</option>
+          <option value="immortal">Immortal</option>
+        </select>
+
+        <label for="medal_star">Medal Star</label>
+        <select name="medal_star" id="medal_star">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
