@@ -41,5 +41,9 @@ const MMR_NUMBER = {
   "divine 4": 5220,
   "divine 5": 5420,
 
-  immortal: 6000,
+  "immortal 1": 5600,
+  "immortal 2": 5800,
+  "immortal 3": 6000,
+  "immortal 4": 6200,
+  "immortal 5": 6400,
 };
