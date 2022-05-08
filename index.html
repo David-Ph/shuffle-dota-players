@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="constants.js" defer></script>
     <script src="index.js" defer></script>
   </head>
   <body>
@@ -39,6 +40,29 @@
 
         <button type="submit">Submit</button>
       </form>
+    </div>
+
+    <div id="players_list" style="margin: 2rem 0">
+      <button id="shuffle-btn">Get Shuffled Team</button>
+      <span id="player_number">0</span>
+      <span id="error" style="color: red"></span>
+    </div>
+
+    <div
+      id="teams"
+      style="display: flex; width: 500px; justify-content: space-between"
+    >
+      <div>
+        <h2>Team 1</h2>
+        <p>Avg mmr: <span id="team_1_avg"></span></p>
+        <div id="team_1"></div>
+      </div>
+
+      <div>
+        <h2>Team 2</h2>
+        <p>Avg mmr: <span id="team_2_avg"></span></p>
+        <div id="team_2"></div>
+      </div>
     </div>
   </body>
 </html>
