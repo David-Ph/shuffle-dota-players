@@ -7,6 +7,7 @@
 body {
   min-height: 100vh;
   background-color: #000301;
+  color: #fff;
 }
 
 #main-header {
@@ -14,6 +15,9 @@ body {
   gap: 1rem;
   height: 80px;
   color: #e2dace;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
 }
 #main-header h1 {
   font-weight: 500;
@@ -21,6 +25,18 @@ body {
 
 #header-logo {
   height: 100%;
+}
+
+#main-section {
+  padding: 1rem 0;
+}
+
+.columns {
+  gap: 1rem;
+}
+
+.column {
+  background: #1c242d;
 }
 
 /*# sourceMappingURL=index.css.map */
