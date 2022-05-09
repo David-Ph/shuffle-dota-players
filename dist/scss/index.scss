@@ -10,13 +10,17 @@
 body {
   min-height: 100vh;
   background-color: color.$tertiary;
+  color: color.$main-text;
 }
 
 #main-header {
   font-family: typography.$main-font;
   gap: 1rem;
   height: 80px;
-  color: color.$main-text;
+  color: color.$title-text;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
   h1 {
     font-weight: 500;
   }
@@ -24,4 +28,16 @@ body {
 
 #header-logo {
   height: 100%;
+}
+
+#main-section {
+  padding: 1rem 0;
+}
+
+.columns {
+  gap: 1rem;
+}
+
+.column {
+  background: color.$primary-bg;
 }
