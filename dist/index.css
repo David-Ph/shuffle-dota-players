@@ -1,7 +1,26 @@
 * {
   margin: 0;
   padding: 0;
-  color: #fff;
+  box-sizing: content-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #000301;
+}
+
+#main-header {
+  font-family: "Cinzel", serif;
+  gap: 1rem;
+  height: 80px;
+  color: #e2dace;
+}
+#main-header h1 {
+  font-weight: 500;
+}
+
+#header-logo {
+  height: 100%;
 }
 
 /*# sourceMappingURL=index.css.map */
