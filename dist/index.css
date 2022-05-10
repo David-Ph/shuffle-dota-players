@@ -74,7 +74,8 @@ body * {
   background-color: #9f2812;
   font-family: "Cinzel", serif;
   color: #e2dace;
-  font-weight: 500;
+  font-weight: bold;
+  font-size: 0.9rem;
   border: 1px solid #000301;
 }
 
