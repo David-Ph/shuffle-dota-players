@@ -60,6 +60,11 @@ body * {
   font-family: "Cinzel", serif;
 }
 
+.error-msg {
+  color: #ac2e15;
+  display: none;
+}
+
 .button {
   padding: 1em;
   border-radius: 4px;

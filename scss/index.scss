@@ -73,6 +73,11 @@ body {
   font-family: typography.$main-font;
 }
 
+.error-msg {
+  color: color.$secondary;
+  display: none;
+}
+
 // * Buttons
 
 .button {

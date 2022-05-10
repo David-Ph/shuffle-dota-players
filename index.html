@@ -10,6 +10,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="index.css" />
   <!-- JS -->
+  <script src="runtime.js" defer></script>
   <script src="main.js" defer></script>
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,25 +37,25 @@
               <div class="form-inputs">
                 <div class="field text-input mr-5">
                   <label class="label">Player Name</label>
-                  <input class="input" type="text" placeholder="Player Name">
+                  <input class="input" type="text" placeholder="Player Name" id="new-player-name">
                 </div>
 
                 <div class="select">
                   <label class="label">Player Medal</label>
-                  <select name="player_medal" id="player_medal">
+                  <select name="player_medal" id="new-player-medal">
                     <option value="herald">Herald</option>
                     <option value="guardian">Guardian</option>
                     <option value="crusader">Crusader</option>
                     <option value="archon">Archon</option>
                     <option value="legend">Legend</option>
-                    <option vrank="ancrank">Ancient</option>
+                    <option value="ancient">Ancient</option>
                     <option value="divine">Divine</option>
                   </select>
                 </div>
 
                 <div class="select">
                   <label class="label">Star</label>
-                  <select name="medal_star" id="medal_star">
+                  <select name="medal_star" id="new-player-medal-star">
                     <option value="1">I</option>
                     <option value="2">II</option>
                     <option value="3">III</option>
@@ -69,18 +70,20 @@
 
                 <div class="field text-input">
                   <label class="label">Player MMR</label>
-                  <input min="0" class="input" type="number" placeholder="Player MMR">
+                  <input min="0" class="input" type="number" placeholder="Player MMR" id="new-player-mmr">
                 </div>
               </div>
 
-              <button class="button btn-primary" id="insert-btn">Insert</button>
+              <button class="button btn-primary" id="insert-btn">Insert</button> <span class="error-msg"
+                id="playerlist-error"></span>
             </form>
           </div>
         </div>
 
         <div id="players-list-section">
           <div>
-            <button type="button" id="shuffle-btn" class="button btn-primary">Shuffle Players</button>
+            <button type="button" id="shuffle-btn" class="button btn-primary">Shuffle Players</button> <span
+              class="error-msg" id="shuffle-error"></span>
           </div>
 
           <div id="players-listing">
@@ -144,7 +147,7 @@
         <div id="team-1-block" class="teams">
           <div id="team-1-info" class="team-info">
             <h2 class="block-title">Team 1</h2>
-            <p class="block-title">Avg MMR: <span id="team-2-avg">0</span></p>
+            <p class="block-title">Avg MMR: <span id="team-1-avg">0</span></p>
           </div>
           <div class="team-players" id="team-1-players">
             <div class="player-item">
@@ -169,8 +172,8 @@
             </div>
             <div class="player-item">
               <input type="hidden" class="player-id" value="">
-              <p class="player-name">MaoMao</p>
-              <p class="player-rank">Ancient IV</p>
+              <p class="player-name"></p>
+              <p class="player-rank"></p>
             </div>
           </div>
         </div>
