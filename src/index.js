@@ -188,7 +188,7 @@ class Main {
       copyToClipBoard(text);
     } else {
       const text = `Team 2 is: ${this.secondTeam.getPlayerNames().join(", ")}`;
-      copyToClipBoard(this.secondTeam.getPlayerNames());
+      copyToClipBoard(text);
     }
   }
 }
