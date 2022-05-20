@@ -28,6 +28,10 @@ body * {
   display: flex;
 }
 
+.is-align-center {
+  align-items: center;
+}
+
 .flex-gap-1 {
   gap: 1em;
 }
@@ -103,6 +107,19 @@ input[type=number] {
 .select {
   display: flex;
   flex-direction: column;
+}
+
+.fa-copy {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  padding: 0.2em;
+  border: 1px solid #fff;
+}
+
+.fa-copy:hover {
+  color: #ac2e15;
+  cursor: pointer;
+  border: 1px solid #ac2e15;
 }
 
 #header-logo {
