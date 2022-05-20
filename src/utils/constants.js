@@ -41,3 +41,8 @@ export const MMR_NUMBER = {
   "divine 4": 5220,
   "divine 5": 5420,
 };
+
+export const TEAM_COPY_BTN = {
+  first: "copy-team-1",
+  second: "copy-team-2",
+};

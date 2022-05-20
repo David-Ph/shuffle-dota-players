@@ -1,7 +1,8 @@
 import PlayerList from "./PlayerList";
 import Player from "./Player";
 import Team from "./Team";
-import { MMR_NUMBER } from "./utils/constants";
+import { MMR_NUMBER, TEAM_COPY_BTN } from "./utils/constants";
+import { copyToClipBoard } from "./utils/common";
 
 class Main {
   constructor() {
@@ -38,6 +39,8 @@ class Main {
       "#team-2-players .player-item"
     );
     this.secondTeamAvgDom = document.querySelector("#team-2-avg");
+
+    this.copyBtns = document.querySelectorAll(".copy-btn");
   }
 
   bindEvents() {
@@ -54,6 +57,10 @@ class Main {
       "click",
       this.shufflePlayer.bind(this)
     );
+
+    this.copyBtns.forEach((btn) => {
+      btn.addEventListener("click", this.copyTeamToClipboard.bind(this));
+    });
   }
 
   // DOM RENDERING
@@ -149,7 +156,7 @@ class Main {
     const player = new Player(playerName, mmr);
     this.playerList.addPlayer(player);
     this.renderPlayersListing();
-    this.resetForm()
+    this.resetForm();
   }
 
   removePlayer(event) {
@@ -173,6 +180,16 @@ class Main {
     this.firstTeam = new Team(firstTeamPlayers);
     this.secondTeam = new Team(secondTeamPlayers);
     this.renderTeams();
+  }
+
+  copyTeamToClipboard({ target }) {
+    if (target.id === TEAM_COPY_BTN.first) {
+      const text = `Team 1 is: ${this.firstTeam.getPlayerNames().join(", ")}`;
+      copyToClipBoard(text);
+    } else {
+      const text = `Team 2 is: ${this.secondTeam.getPlayerNames().join(", ")}`;
+      copyToClipBoard(this.secondTeam.getPlayerNames());
+    }
   }
 }
 
