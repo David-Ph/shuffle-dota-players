@@ -1,8 +1,8 @@
 import PlayerList from "./PlayerList";
 import Player from "./Player";
 import Team from "./Team";
-import { MMR_NUMBER, TEAM_COPY_BTN } from "./utils/constants";
-import { copyToClipBoard } from "./utils/common";
+import { MMR_NUMBER, TEAM_COPY_BTN, REGULAR_PLAYERS } from "./utils/constants";
+import { copyToClipBoard, autocomplete } from "./utils/common";
 
 class Main {
   constructor() {
@@ -15,6 +15,7 @@ class Main {
   init() {
     this.storeDoms();
     this.bindEvents();
+    this.bindAutoComplete();
   }
 
   storeDoms() {
@@ -41,6 +42,9 @@ class Main {
     this.secondTeamAvgDom = document.querySelector("#team-2-avg");
 
     this.copyBtns = document.querySelectorAll(".copy-btn");
+
+    this.findPlayerInput = document.getElementById("findPlayerInput");
+    this.findPlayerSubmit = document.getElementById("findPlayerSubmit");
   }
 
   bindEvents() {
@@ -61,6 +65,16 @@ class Main {
     this.copyBtns.forEach((btn) => {
       btn.addEventListener("click", this.copyTeamToClipboard.bind(this));
     });
+
+    this.findPlayerSubmit.addEventListener(
+      "click",
+      this.insertFoundPlayer.bind(this)
+    );
+  }
+
+  bindAutoComplete() {
+    const playerNames = REGULAR_PLAYERS.map((player) => player.name);
+    autocomplete(this.findPlayerInput, playerNames);
   }
 
   // DOM RENDERING
@@ -135,25 +149,29 @@ class Main {
   }
 
   // DOM LOGIC
-  createNewPlayer(event) {
+  createNewPlayer(event, foundPlayer = null) {
     event.preventDefault();
     if (this.playerList.players.length === 10) {
       this.renderError("playerlist-error", "Maximum player is 10!");
+      this.renderError("playerlist-modal-error", "Maximum player is 10!");
       return;
     }
 
-    if (!this.playerForm.name.value) {
+    if (!foundPlayer && !this.playerForm.name.value) {
       this.renderError("playerlist-error", "Player name is required!");
       return;
     }
 
-    const playerName = this.playerForm.name.value;
+    const playerName = foundPlayer?.name || this.playerForm.name.value;
     const playerRank = `${this.playerForm.medal.value} ${this.playerForm.star.value}`;
-    const mmr = this.playerForm.mmr.value
+    const mmr = foundPlayer?.mmr
+      ? foundPlayer.mmr
+      : this.playerForm.mmr.value
       ? +this.playerForm.mmr.value
       : +MMR_NUMBER[playerRank];
 
     const player = new Player(playerName, mmr);
+
     this.playerList.addPlayer(player);
     this.renderPlayersListing();
     this.resetForm();
@@ -190,6 +208,14 @@ class Main {
       const text = `Team 2 is: ${this.secondTeam.getPlayerNames().join(", ")}`;
       copyToClipBoard(text);
     }
+  }
+
+  insertFoundPlayer(event) {
+    const findPlayer = REGULAR_PLAYERS.find(
+      (player) => player.name === this.findPlayerInput.value
+    );
+    this.createNewPlayer(event, findPlayer);
+    this.findPlayerInput.value = "";
   }
 }
 

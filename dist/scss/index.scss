@@ -18,11 +18,21 @@
 
 body {
   min-height: 100vh;
-  background-color: color.$tertiary;
+  background-color: color.$tertiary !important;
   * {
     color: color.$main-text;
     font-family: typography.$text-font;
   }
+}
+
+label {
+  color: color.$main-text;
+}
+input,
+select {
+  background-color: color.$secondary-bg;
+  color: color.$main-text;
+  border: 1px solid color.$tertiary-bg;
 }
 
 // ? Layout
@@ -97,7 +107,6 @@ body {
 .btn-primary {
   background-color: color.$primary;
   font-family: typography.$main-font;
-  color: color.$title-text;
   font-weight: bold;
   font-size: 0.9rem;
   border: 1px solid color.$tertiary;
@@ -149,7 +158,7 @@ input[type="number"] {
 }
 
 #main-section {
-  padding: 1rem 0;
+  padding: 0;
 }
 
 #main-header {
@@ -168,15 +177,6 @@ input[type="number"] {
 #new-player-form {
   width: 100%;
   margin: 1em 0;
-  label {
-    color: color.$main-text;
-  }
-  input,
-  select {
-    background-color: color.$secondary-bg;
-    color: color.$main-text;
-    border: 1px solid color.$tertiary-bg;
-  }
   .form-inputs {
     display: flex;
     gap: 0.5em;
@@ -189,6 +189,7 @@ input[type="number"] {
     display: flex;
     align-items: center;
     margin: 0 0.5em;
+    padding-top: 2.4rem;
   }
 }
 
@@ -201,7 +202,7 @@ input[type="number"] {
   justify-content: space-between;
   padding: 0.5em;
   background-color: color.$secondary-bg;
-  height: 25px;
+  height: 2.5rem;
 }
 
 .player-item:nth-of-type(odd) {
@@ -227,6 +228,52 @@ input[type="number"] {
 
 .team-players {
   padding: 1em 0;
+}
+
+// ? Find Player Modal
+
+#find-player-modal {
+  .modal-content {
+    background-color: color.$primary-bg !important;
+    margin-top: 35%;
+  }
+  .modal-footer {
+    border-top: none;
+  }
+  .modal-header {
+    border-bottom: none;
+  }
+  .autocomplete {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  .autocomplete-items {
+    position: absolute;
+    border: 5px solid white;
+    border-radius: 10px;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: color.$secondary-bg;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  .autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: color.$tertiary-bg;
+  }
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: color.$tertiary-bg !important;
+  }
 }
 
 // ? Misc
