@@ -73,7 +73,6 @@ class Main {
   }
 
   bindAutoComplete() {
-    console.log("HELLO FROM BIND AUTO COMPLETE")
     const playerNames = REGULAR_PLAYERS.map((player) => player.name);
     autocomplete(this.findPlayerInput, playerNames);
   }
@@ -212,7 +211,6 @@ class Main {
   }
 
   insertFoundPlayer(event) {
-    console.log("HELLO FROM INSERT FOUND PLAYER");
     const findPlayer = REGULAR_PLAYERS.find(
       (player) => player.name === this.findPlayerInput.value
     );

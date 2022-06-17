@@ -97,5 +97,3 @@ export const REGULAR_PLAYERS = [
   { name: "Anvar", mmr: 4400 },
   { name: "Doolie", mmr: 4650 },
 ];
-
-console.log("HELLO FROM CONSTANTS.JS")
