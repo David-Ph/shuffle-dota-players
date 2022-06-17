@@ -12,11 +12,22 @@
 
 body {
   min-height: 100vh;
-  background-color: #000301;
+  background-color: #000301 !important;
 }
 body * {
   color: #fff;
   font-family: "Poppins", sans-serif;
+}
+
+label {
+  color: #fff;
+}
+
+input,
+select {
+  background-color: #28333d;
+  color: #fff;
+  border: 1px solid #2d3741;
 }
 
 .container {
@@ -82,7 +93,6 @@ body * {
 .btn-primary {
   background-color: #9f2812;
   font-family: "Cinzel", serif;
-  color: #e2dace;
   font-weight: bold;
   font-size: 0.9rem;
   border: 1px solid #000301;
@@ -127,7 +137,7 @@ input[type=number] {
 }
 
 #main-section {
-  padding: 1rem 0;
+  padding: 0;
 }
 
 #main-header {
@@ -147,15 +157,6 @@ input[type=number] {
   width: 100%;
   margin: 1em 0;
 }
-#new-player-form label {
-  color: #fff;
-}
-#new-player-form input,
-#new-player-form select {
-  background-color: #28333d;
-  color: #fff;
-  border: 1px solid #2d3741;
-}
 #new-player-form .form-inputs {
   display: flex;
   gap: 0.5em;
@@ -168,6 +169,7 @@ input[type=number] {
   display: flex;
   align-items: center;
   margin: 0 0.5em;
+  padding-top: 2.4rem;
 }
 
 #players-listing {
@@ -179,7 +181,7 @@ input[type=number] {
   justify-content: space-between;
   padding: 0.5em;
   background-color: #28333d;
-  height: 25px;
+  height: 2.5rem;
 }
 
 .player-item:nth-of-type(odd) {
@@ -205,6 +207,48 @@ input[type=number] {
 
 .team-players {
   padding: 1em 0;
+}
+
+#find-player-modal .modal-content {
+  background-color: #1c242d !important;
+  margin-top: 35%;
+}
+#find-player-modal .modal-footer {
+  border-top: none;
+}
+#find-player-modal .modal-header {
+  border-bottom: none;
+}
+#find-player-modal .autocomplete {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+#find-player-modal .autocomplete-items {
+  position: absolute;
+  border: 5px solid white;
+  border-radius: 10px;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+#find-player-modal .autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #28333d;
+  border-bottom: 1px solid #d4d4d4;
+}
+#find-player-modal .autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #2d3741;
+}
+#find-player-modal .autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: #2d3741 !important;
 }
 
 /* Chrome, Safari, Edge, Opera */
