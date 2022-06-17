@@ -13,6 +13,7 @@ export const copyToClipBoard = (text) => {
 };
 
 export function autocomplete(inp, arr) {
+  console.log("HELLO FROM COMMON.JS");
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
   var currentFocus;
