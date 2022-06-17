@@ -250,7 +250,7 @@ input[type="number"] {
   }
   .autocomplete-items {
     position: absolute;
-    border: 5px solid white;
+    border: 1px solid white;
     border-radius: 10px;
     border-bottom: none;
     border-top: none;
@@ -265,6 +265,10 @@ input[type="number"] {
     cursor: pointer;
     background-color: color.$secondary-bg;
     border-bottom: 1px solid #d4d4d4;
+  }
+  .autocomplete-items div:last-of-type {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
   .autocomplete-items div:hover {
     /*when hovering an item:*/
