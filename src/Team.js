@@ -3,4 +3,8 @@ export default class Team {
     this.players = players;
     this.avgMMR = players.reduce((a, b) => a + b.mmr, 0) / players.length;
   }
+
+  getPlayerNames() {
+    return this.players.map((player) => player.name);
+  }
 }

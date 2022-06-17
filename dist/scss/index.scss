@@ -37,6 +37,10 @@ body {
   display: flex;
 }
 
+.is-align-center {
+  align-items: center;
+}
+
 .flex-gap-1 {
   gap: 1em;
 }
@@ -120,6 +124,21 @@ input[type="number"] {
 .select {
   display: flex;
   flex-direction: column;
+}
+
+// FontAwesome Icons
+
+.fa-copy {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  padding: 0.2em;
+  border: 1px solid color.$main-text;
+}
+
+.fa-copy:hover {
+  color: color.$secondary;
+  cursor: pointer;
+  border: 1px solid color.$secondary;
 }
 
 // ? Specific Element
