@@ -69,7 +69,7 @@ export const REGULAR_PLAYERS = [
   { name: "L0hg!k / Lohgik", mmr: 3470 },
   { name: "Momose", mmr: 4200 },
   { name: "Jraniel", mmr: 3660 },
-  { name: "Devince / Rumanzovia", mmr: 1380 },
+  { name: "Devince / Rumanzovia", mmr: 1640 },
   { name: "Wei / Indian Mummy", mmr: 3050 },
   { name: "PaxCalibur", mmr: 5700 },
   { name: "SlowDuck", mmr: 1700 },
@@ -100,4 +100,6 @@ export const REGULAR_PLAYERS = [
   { name: "Jng / Jooong", mmr: 4070 },
   { name: "742 - JaTu", mmr: 1470 },
   { name: "tasukete / intrepid", mmr: 1470 },
+  { name: "Kreme | Truth / lgi", mmr: 4040 },
+  { name: "silicon / QuanTim", mmr: 1000 },
 ];
