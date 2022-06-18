@@ -96,4 +96,8 @@ export const REGULAR_PLAYERS = [
   { name: "Aeryj", mmr: 4650 },
   { name: "Anvar", mmr: 4400 },
   { name: "Doolie", mmr: 4650 },
+  { name: "Fortune", mmr: 3500 },
+  { name: "Jng / Jooong", mmr: 4070 },
+  { name: "742 - JaTu", mmr: 1470 },
+  { name: "tasukete / intrepid", mmr: 1470 },
 ];
