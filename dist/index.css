@@ -175,6 +175,11 @@ input[type=number] {
 #players-listing {
   border-radius: 4px;
 }
+#players-listing .player-rank:hover {
+  color: #9f2812;
+  transform: scale(1.01);
+  transition: all 50ms;
+}
 
 .player-item {
   display: flex;

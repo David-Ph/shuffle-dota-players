@@ -195,6 +195,12 @@ input[type="number"] {
 
 #players-listing {
   border-radius: 4px;
+
+  .player-rank:hover {
+    color: color.$primary;
+    transform: scale(1.01);
+    transition: all 50ms;
+  }
 }
 
 .player-item {
