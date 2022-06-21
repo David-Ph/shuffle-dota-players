@@ -209,16 +209,19 @@ input[type=number] {
   padding: 1em 0;
 }
 
-#find-player-modal .modal-content {
+.modal-content {
   background-color: #1c242d !important;
   margin-top: 35%;
 }
-#find-player-modal .modal-footer {
-  border-top: none;
+
+.modal-footer {
+  border-top: none !important;
 }
-#find-player-modal .modal-header {
-  border-bottom: none;
+
+.modal-header {
+  border-bottom: none !important;
 }
+
 #find-player-modal .autocomplete {
   position: relative;
   display: inline-block;
