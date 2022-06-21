@@ -117,53 +117,53 @@
             <div class="player-item">
               <input type="hidden" class="player-id" value="" />
               <p class="player-name"></p>
-              <p class="player-rank"></p>
+              <p data-bs-toggle="modal" data-bs-target="#player-mmr-modal" class="player-rank"></p>
             </div>
             <div class="player-item">
               <input type="hidden" class="player-id" value="" />
               <p class="player-name"></p>
-              <p class="player-rank"></p>
+              <p data-bs-toggle="modal" data-bs-target="#player-mmr-modal" class="player-rank"></p>
             </div>
             <div class="player-item">
               <input type="hidden" class="player-id" value="" />
               <p class="player-name"></p>
-              <p class="player-rank"></p>
+              <p data-bs-toggle="modal" data-bs-target="#player-mmr-modal" class="player-rank"></p>
             </div>
             <div class="player-item">
               <input type="hidden" class="player-id" value="" />
               <p class="player-name"></p>
-              <p class="player-rank"></p>
+              <p data-bs-toggle="modal" data-bs-target="#player-mmr-modal" class="player-rank"></p>
             </div>
             <div class="player-item">
               <input type="hidden" class="player-id" value="" />
               <p class="player-name"></p>
-              <p class="player-rank"></p>
+              <p data-bs-toggle="modal" data-bs-target="#player-mmr-modal" class="player-rank"></p>
             </div>
 
             <div class="player-item">
               <input type="hidden" class="player-id" value="" />
               <p class="player-name"></p>
-              <p class="player-rank"></p>
+              <p data-bs-toggle="modal" data-bs-target="#player-mmr-modal" class="player-rank"></p>
             </div>
             <div class="player-item">
               <input type="hidden" class="player-id" value="" />
               <p class="player-name"></p>
-              <p class="player-rank"></p>
+              <p data-bs-toggle="modal" data-bs-target="#player-mmr-modal" class="player-rank"></p>
             </div>
             <div class="player-item">
               <input type="hidden" class="player-id" value="" />
               <p class="player-name"></p>
-              <p class="player-rank"></p>
+              <p data-bs-toggle="modal" data-bs-target="#player-mmr-modal" class="player-rank"></p>
             </div>
             <div class="player-item">
               <input type="hidden" class="player-id" value="" />
               <p class="player-name"></p>
-              <p class="player-rank"></p>
+              <p data-bs-toggle="modal" data-bs-target="#player-mmr-modal" class="player-rank"></p>
             </div>
             <div class="player-item">
               <input type="hidden" class="player-id" value="" />
               <p class="player-name"></p>
-              <p class="player-rank"></p>
+              <p data-bs-toggle="modal" data-bs-target="#player-mmr-modal" class="player-rank"></p>
             </div>
           </div>
         </div>
@@ -266,6 +266,30 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button id="findPlayerSubmit" type="submit" class="button btn-primary">Insert</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="player-mmr-modal" tabindex="-1" aria-labelledby="player-mmr-modal-label"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title block-title" id="player-mmr-modal-label"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form autocomplete="off" id="find-player-form">
+            <div class="autocomplete">
+              <input type="hidden" id="edit-player-id" name="playerId" value="">
+              <input id="edit-player-mmr" type="number" name="playerMmr" placeholder="MMR">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="edit-mmr-btn" type="submit" class="button btn-primary">Save</button>
         </div>
       </div>
     </div>

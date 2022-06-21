@@ -18,6 +18,10 @@ export default class PlayerList {
     this.players = this.players.filter((player) => player.id !== playerId);
   }
 
+  findPlayer(playerId) {
+    return this.players.find((player) => player.id == playerId);
+  }
+
   shufflePlayer() {
     const sortedPlayers = this.players.sort((a, b) => b.mmr - a.mmr);
 

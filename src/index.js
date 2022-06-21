@@ -29,6 +29,9 @@ class Main {
     this.playerListingDom = document.querySelectorAll(
       "#players-listing .player-item"
     );
+    this.playerListingMmr = document.querySelectorAll(
+      "#players-listing .player-item .player-rank"
+    );
     this.shufflePlayerBtn = document.querySelector("#shuffle-btn");
 
     this.firstTeamPlayerDom = document.querySelectorAll(
@@ -45,6 +48,9 @@ class Main {
 
     this.findPlayerInput = document.getElementById("findPlayerInput");
     this.findPlayerSubmit = document.getElementById("findPlayerSubmit");
+
+    this.editMmrModal = document.getElementById("player-mmr-modal");
+    this.editMmrModalSubmit = document.getElementById("edit-mmr-btn");
   }
 
   bindEvents() {
@@ -55,6 +61,10 @@ class Main {
 
     this.playerListingDom.forEach((item) => {
       item.addEventListener("click", this.removePlayer.bind(this));
+    });
+
+    this.playerListingMmr.forEach((item) => {
+      item.addEventListener("click", this.setMmr.bind(this));
     });
 
     this.shufflePlayerBtn.addEventListener(
@@ -70,6 +80,10 @@ class Main {
       "click",
       this.insertFoundPlayer.bind(this)
     );
+
+    this.editMmrModalSubmit.addEventListener("click", this.saveMmr.bind(this));
+
+    this.focusInputOnModalOpen();
   }
 
   bindAutoComplete() {
@@ -98,7 +112,7 @@ class Main {
 
       getIdDOM.value = player.id;
       getNameDOM.textContent = player.name;
-      getRankDOM.textContent = `~ ${player.mmr}`;
+      getRankDOM.textContent = player.mmr;
     });
   }
 
@@ -127,7 +141,7 @@ class Main {
 
       getIdDOM.value = player.id;
       getNameDOM.textContent = player.name;
-      getRankDOM.textContent = `~ ${player.mmr}`;
+      getRankDOM.textContent = player.mmr;
     });
 
     this.secondTeamAvgDom.textContent = this.secondTeam.avgMMR;
@@ -139,7 +153,7 @@ class Main {
 
       getIdDOM.value = player.id;
       getNameDOM.textContent = player.name;
-      getRankDOM.textContent = `~ ${player.mmr}`;
+      getRankDOM.textContent = player.mmr;
     });
   }
 
@@ -178,7 +192,7 @@ class Main {
   }
 
   removePlayer(event) {
-    const getId = event.target.querySelector(".player-id").value;
+    const getId = event.target.querySelector(".player-id")?.value;
 
     if (getId) {
       this.playerList.removePlayer(getId);
@@ -216,6 +230,39 @@ class Main {
     );
     this.createNewPlayer(event, findPlayer);
     this.findPlayerInput.value = "";
+    $("#findPlayerInput").focus();
+  }
+
+  setMmr({ target }) {
+    const parent = target.parentElement;
+    const mmr = target.textContent;
+    const name = parent.querySelector(".player-name")?.textContent;
+    const id = parent.querySelector(".player-id")?.value;
+
+    const modal = this.editMmrModal;
+    modal.querySelector("#player-mmr-modal-label").textContent = name;
+    modal.querySelector("#edit-player-mmr").value = mmr;
+    modal.querySelector("#edit-player-id").value = id;
+  }
+
+  saveMmr() {
+    const modal = this.editMmrModal;
+    const mmr = modal.querySelector("#edit-player-mmr").value;
+    const id = modal.querySelector("#edit-player-id").value;
+
+    const getPlayer = this.playerList.findPlayer(id);
+    getPlayer.setMmr(mmr)
+    this.renderPlayersListing();
+    $("#player-mmr-modal").modal("toggle");
+  }
+
+  focusInputOnModalOpen() {
+    $("#player-mmr-modal").on("shown.bs.modal", function () {
+      $("#edit-player-mmr").focus();
+    });
+    $("#find-player-modal").on("shown.bs.modal", function () {
+      $("#findPlayerInput").focus();
+    });
   }
 }
 

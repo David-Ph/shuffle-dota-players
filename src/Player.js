@@ -5,4 +5,10 @@ export default class Player {
     this.name = name;
     this.mmr = mmr;
   }
+
+  setMmr(newVal) {
+    if(isNaN(+newVal)) return;
+
+    this.mmr = +newVal;
+  }
 }

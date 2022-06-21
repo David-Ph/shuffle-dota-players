@@ -232,17 +232,17 @@ input[type="number"] {
 
 // ? Find Player Modal
 
+.modal-content {
+  background-color: color.$primary-bg !important;
+  margin-top: 35%;
+}
+.modal-footer {
+  border-top: none !important;
+}
+.modal-header {
+  border-bottom: none !important;
+}
 #find-player-modal {
-  .modal-content {
-    background-color: color.$primary-bg !important;
-    margin-top: 35%;
-  }
-  .modal-footer {
-    border-top: none;
-  }
-  .modal-header {
-    border-bottom: none;
-  }
   .autocomplete {
     position: relative;
     display: inline-block;
