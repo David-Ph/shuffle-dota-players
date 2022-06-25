@@ -78,6 +78,10 @@ select {
   border-radius: 8px;
 }
 
+.selectedRow {
+  background-color: color.$secondary !important;
+}
+
 // ? Components
 // ////////////
 

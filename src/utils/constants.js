@@ -47,6 +47,11 @@ export const TEAM_COPY_BTN = {
   second: "copy-team-2",
 };
 
+export const TEAM_DATASET = {
+  one: "one",
+  two: "two",
+}
+
 export const REGULAR_PLAYERS = [
   { name: "MaoMao", mmr: 4650, realMmr: 4050 },
   { name: "Gary", mmr: 3800, realMmr: 4200 },

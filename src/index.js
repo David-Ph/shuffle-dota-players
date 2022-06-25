@@ -1,7 +1,12 @@
 import PlayerList from "./PlayerList";
 import Player from "./Player";
 import Team from "./Team";
-import { MMR_NUMBER, TEAM_COPY_BTN, REGULAR_PLAYERS } from "./utils/constants";
+import {
+  MMR_NUMBER,
+  TEAM_COPY_BTN,
+  REGULAR_PLAYERS,
+  TEAM_DATASET,
+} from "./utils/constants";
 import { copyToClipBoard, autocomplete } from "./utils/common";
 
 class Main {
@@ -10,6 +15,13 @@ class Main {
     this.firstTeam = [];
     this.secondTeam = [];
     this.playerList = new PlayerList();
+
+    this.swapPlayerTemp = null;
+    this.swapPlayerTempTwo = null;
+    this.swapPlayerTempDom = null;
+    this.swapPlayerTempTwoDom = null;
+    this.swapPlayerTempTeam = null;
+    this.swapPlayerTempTwoTeam = null;
   }
 
   init() {
@@ -38,6 +50,9 @@ class Main {
     this.sortPlayerBtn = document.querySelector("#sort-btn");
 
     // ? Team Section
+    this.teamPlayersDom = document.querySelectorAll(
+      "#team-section .player-item"
+    );
     this.firstTeamPlayerDom = document.querySelectorAll(
       "#team-1-players .player-item"
     );
@@ -82,8 +97,11 @@ class Main {
     this.copyBtns.forEach((btn) => {
       btn.addEventListener("click", this.copyTeamToClipboard.bind(this));
     });
+    this.teamPlayersDom.forEach((playerDom) => {
+      playerDom.addEventListener("click", this.swapPlayers.bind(this));
+    });
 
-    // Modal Section
+    // ? Modal Section
     this.findPlayerSubmit.addEventListener(
       "click",
       this.insertFoundPlayer.bind(this)
@@ -254,6 +272,72 @@ class Main {
       const text = `Team 2 is: ${this.secondTeam.getPlayerNames().join(", ")}`;
       copyToClipBoard(text);
     }
+  }
+
+  swapPlayers({ currentTarget }) {
+    // Guard clause
+    if (!currentTarget.querySelector(".player-id").value) return;
+
+    // Get selected player data
+    const targetPlayerId = currentTarget.querySelector(".player-id").value;
+    const selectedPlayerTeam =
+      currentTarget.dataset.team === TEAM_DATASET.one
+        ? this.firstTeam
+        : this.secondTeam;
+
+    // Selecting First Player
+    if (!this.swapPlayerTemp) {
+      this.swapPlayerTempDom = currentTarget;
+      this.swapPlayerTempDom.classList.add("selectedRow");
+      this.swapPlayerTemp = selectedPlayerTeam.getPlayerData(targetPlayerId);
+      this.swapPlayerTempTeam = selectedPlayerTeam;
+      return;
+    }
+
+    // Reset swap if same player is selected twice
+    if (targetPlayerId === this.swapPlayerTemp.id) {
+      this.resetSwap();
+      return;
+    }
+
+    // Set the second player
+    this.swapPlayerTempDomTwo = currentTarget;
+    this.swapPlayerTempTwo = selectedPlayerTeam.getPlayerData(targetPlayerId);
+    this.swapPlayerTempTwoTeam = selectedPlayerTeam;
+
+    // Reset swap if players from the same teams are selected twice
+    if (this.swapPlayerTempTeam === this.swapPlayerTempTwoTeam) {
+      this.resetSwap();
+      return;
+    }
+
+    // Get team data
+    this.swapPlayerTempTeam.swapPlayer(
+      this.swapPlayerTemp,
+      this.swapPlayerTempTwo
+    );
+    this.swapPlayerTempTwoTeam.swapPlayer(
+      this.swapPlayerTempTwo,
+      this.swapPlayerTemp
+    );
+
+    // Render New Teams
+    this.renderTeams();
+
+    // Reset everything after swapping
+    this.resetSwap();
+  }
+
+  resetSwap() {
+    this.swapPlayerTempDom?.classList.remove("selectedRow");
+    this.swapPlayerTempTwoDom?.classList.remove("selectedRow");
+
+    this.swapPlayerTemp = null;
+    this.swapPlayerTempTwo = null;
+    this.swapPlayerTempDom = null;
+    this.swapPlayerTempTwoDom = null;
+    this.swapPlayerTempTeam = null;
+    this.swapPlayerTempTwoTeam = null;
   }
 
   insertFoundPlayer(event) {
