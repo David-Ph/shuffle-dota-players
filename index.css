@@ -71,6 +71,10 @@ select {
   border-radius: 8px;
 }
 
+.selectedRow {
+  background-color: #ac2e15 !important;
+}
+
 .block-title {
   font-family: "Cinzel", serif;
 }
