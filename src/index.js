@@ -34,6 +34,7 @@ class Main {
       "#players-listing .player-item .player-rank"
     );
     this.shufflePlayerBtn = document.querySelector("#shuffle-btn");
+    this.balancePlayerBtn = document.querySelector("#balance-btn");
     this.sortPlayerBtn = document.querySelector("#sort-btn");
 
     // ? Team Section
@@ -61,21 +62,21 @@ class Main {
       "click",
       this.createNewPlayer.bind(this)
     );
-
     this.playerListingDom.forEach((item) => {
       item.addEventListener("click", this.removePlayer.bind(this));
     });
-
     this.playerListingMmr.forEach((item) => {
       item.addEventListener("click", this.setMmr.bind(this));
     });
-
     this.shufflePlayerBtn.addEventListener(
       "click",
       this.shufflePlayer.bind(this)
     );
-
     this.sortPlayerBtn.addEventListener("click", this.sortPlayer.bind(this));
+    this.balancePlayerBtn.addEventListener(
+      "click",
+      this.balancePlayer.bind(this)
+    );
 
     // ? Team Section
     this.copyBtns.forEach((btn) => {
@@ -224,6 +225,25 @@ class Main {
   sortPlayer() {
     this.playerList.sortPlayer();
     this.renderPlayersListing();
+  }
+
+  balancePlayer() {
+    if (this.playerList.players.length < 10) {
+      this.renderError("shuffle-error", "Not enough player!");
+      return;
+    }
+
+    const [firstTeamPlayers, secondTeamPlayers] =
+      this.playerList.balancePlayer();
+
+    if (!firstTeamPlayers?.length || !secondTeamPlayers?.length) {
+      this.renderError("shuffle-error", "No balanced variations found!");
+      return;
+    }
+
+    this.firstTeam = new Team(firstTeamPlayers);
+    this.secondTeam = new Team(secondTeamPlayers);
+    this.renderTeams();
   }
 
   copyTeamToClipboard({ target }) {
