@@ -124,7 +124,9 @@ class Main {
       const getIdDOM = item.querySelector(".player-id");
       const getNameDOM = item.querySelector(".player-name");
       const getRankDOM = item.querySelector(".player-rank");
+      const getActionContainer = item.querySelector(".action");
 
+      getActionContainer.style.visibility = "hidden";
       getIdDOM.value = "";
       getNameDOM.textContent = "";
       getRankDOM.textContent = ``;
@@ -135,7 +137,9 @@ class Main {
       const getIdDOM = getRowDOM.querySelector(".player-id");
       const getNameDOM = getRowDOM.querySelector(".player-name");
       const getRankDOM = getRowDOM.querySelector(".player-rank");
+      const getActionContainer = getRowDOM.querySelector(".action");
 
+      getActionContainer.style.visibility = "visible";
       getIdDOM.value = player.id;
       getNameDOM.textContent = player.name;
       getRankDOM.textContent = player.mmr;
@@ -217,8 +221,11 @@ class Main {
     this.resetForm();
   }
 
-  removePlayer(event) {
-    const getId = event.target.querySelector(".player-id")?.value;
+  removePlayer({target}) {
+    if (!target.classList.contains("delete-btn")) return;
+
+    const playerRow = target.parentElement.parentElement;
+    const getId = playerRow.querySelector(".player-id")?.value;
 
     if (getId) {
       this.playerList.removePlayer(getId);
@@ -350,7 +357,7 @@ class Main {
   }
 
   setMmr({ target }) {
-    const parent = target.parentElement;
+    const parent = target.parentElement.parentElement;
     const mmr = target.textContent;
     const name = parent.querySelector(".player-name")?.textContent;
     const id = parent.querySelector(".player-id")?.value;

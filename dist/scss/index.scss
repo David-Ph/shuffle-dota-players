@@ -102,6 +102,7 @@ select {
   padding: 1em;
   border-radius: 4px;
   margin: 1em 0;
+  font-size: 0.625rem;
 }
 
 .button:hover {
@@ -119,6 +120,23 @@ select {
 .btn-primary:hover {
   background-color: color.$secondary;
   border: 1px solid #fff;
+}
+
+.btn-red {
+  background-color: color.$secondary;
+  border: none;
+}
+.btn-red:hover {
+  background-color: color.$primary;
+}
+
+.btn-transparent {
+  background-color: transparent;
+  border: 1px solid white;
+}
+.btn-transparent:hover {
+  color: color.$title-text;
+  border: 1px solid color.$title-text;
 }
 
 // * Inputs
@@ -200,10 +218,15 @@ input[type="number"] {
 #players-listing {
   border-radius: 4px;
 
-  .player-rank:hover {
-    color: color.$primary;
-    transform: scale(1.01);
-    transition: all 50ms;
+  .action {
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+  }
+  .delete-btn,
+  .edit-btn {
+    padding: 0.25rem;
+    margin: 0 0.5rem 0.25rem 0;
   }
 }
 
