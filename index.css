@@ -79,6 +79,10 @@ select {
   font-family: "Cinzel", serif;
 }
 
+.primary-text {
+  color: #ac2e15;
+}
+
 .error-msg {
   color: #ac2e15;
   display: none;
