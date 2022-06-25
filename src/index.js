@@ -176,7 +176,7 @@ class Main {
       getIdDOM.value = player.id;
       getNameDOM.textContent = player.name;
       getRankDOM.textContent = player.mmr;
-      getIndexDom.textContent = getIndex;
+      getIndexDom.textContent = +getIndex + 1;
     });
 
     this.secondTeamAvgDom.textContent = this.secondTeam.avgMMR;
@@ -193,7 +193,7 @@ class Main {
       getIdDOM.value = player.id;
       getNameDOM.textContent = player.name;
       getRankDOM.textContent = player.mmr;
-      getIndexDom.textContent = getIndex;
+      getIndexDom.textContent = +getIndex + 1;
     });
   }
 
