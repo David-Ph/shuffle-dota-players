@@ -22,8 +22,12 @@ export default class PlayerList {
     return this.players.find((player) => player.id == playerId);
   }
 
+  sortPlayer() {
+    this.players.sort((a, b) => b.mmr - a.mmr);
+  }
+
   shufflePlayer() {
-    const sortedPlayers = this.players.sort((a, b) => b.mmr - a.mmr);
+    const sortedPlayers = [...this.players].sort((a, b) => b.mmr - a.mmr);
 
     const firstTeam = [];
     const secondTeam = [];

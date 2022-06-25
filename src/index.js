@@ -19,6 +19,7 @@ class Main {
   }
 
   storeDoms() {
+    // ? Player listing section
     this.playerForm = {
       name: document.querySelector("#new-player-name"),
       medal: document.querySelector("#new-player-medal"),
@@ -33,19 +34,20 @@ class Main {
       "#players-listing .player-item .player-rank"
     );
     this.shufflePlayerBtn = document.querySelector("#shuffle-btn");
+    this.sortPlayerBtn = document.querySelector("#sort-btn");
 
+    // ? Team Section
     this.firstTeamPlayerDom = document.querySelectorAll(
       "#team-1-players .player-item"
     );
     this.firstTeamAvgDom = document.querySelector("#team-1-avg");
-
     this.secondTeamPlayerDom = document.querySelectorAll(
       "#team-2-players .player-item"
     );
     this.secondTeamAvgDom = document.querySelector("#team-2-avg");
-
     this.copyBtns = document.querySelectorAll(".copy-btn");
 
+    // ? Modal section
     this.findPlayerInput = document.getElementById("findPlayerInput");
     this.findPlayerSubmit = document.getElementById("findPlayerSubmit");
 
@@ -54,6 +56,7 @@ class Main {
   }
 
   bindEvents() {
+    // ? Player Listing section
     this.playerForm.btn.addEventListener(
       "click",
       this.createNewPlayer.bind(this)
@@ -72,10 +75,14 @@ class Main {
       this.shufflePlayer.bind(this)
     );
 
+    this.sortPlayerBtn.addEventListener("click", this.sortPlayer.bind(this));
+
+    // ? Team Section
     this.copyBtns.forEach((btn) => {
       btn.addEventListener("click", this.copyTeamToClipboard.bind(this));
     });
 
+    // Modal Section
     this.findPlayerSubmit.addEventListener(
       "click",
       this.insertFoundPlayer.bind(this)
@@ -214,6 +221,11 @@ class Main {
     this.renderTeams();
   }
 
+  sortPlayer() {
+    this.playerList.sortPlayer();
+    this.renderPlayersListing();
+  }
+
   copyTeamToClipboard({ target }) {
     if (target.id === TEAM_COPY_BTN.first) {
       const text = `Team 1 is: ${this.firstTeam.getPlayerNames().join(", ")}`;
@@ -251,7 +263,7 @@ class Main {
     const id = modal.querySelector("#edit-player-id").value;
 
     const getPlayer = this.playerList.findPlayer(id);
-    getPlayer.setMmr(mmr)
+    getPlayer.setMmr(mmr);
     this.renderPlayersListing();
     $("#player-mmr-modal").modal("toggle");
   }
