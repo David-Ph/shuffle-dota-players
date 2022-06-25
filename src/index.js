@@ -168,10 +168,15 @@ class Main {
       const getIdDOM = getRowDOM.querySelector(".player-id");
       const getNameDOM = getRowDOM.querySelector(".player-name");
       const getRankDOM = getRowDOM.querySelector(".player-rank");
+      const getIndex = this.playerList.players.findIndex(
+        (el) => el.id === player.id
+      );
+      const getIndexDom = getRowDOM.querySelector(".player-index");
 
       getIdDOM.value = player.id;
       getNameDOM.textContent = player.name;
       getRankDOM.textContent = player.mmr;
+      getIndexDom.textContent = getIndex;
     });
 
     this.secondTeamAvgDom.textContent = this.secondTeam.avgMMR;
@@ -180,10 +185,15 @@ class Main {
       const getIdDOM = getRowDOM.querySelector(".player-id");
       const getNameDOM = getRowDOM.querySelector(".player-name");
       const getRankDOM = getRowDOM.querySelector(".player-rank");
+      const getIndex = this.playerList.players.findIndex(
+        (el) => el.id === player.id
+      );
+      const getIndexDom = getRowDOM.querySelector(".player-index");
 
       getIdDOM.value = player.id;
       getNameDOM.textContent = player.name;
       getRankDOM.textContent = player.mmr;
+      getIndexDom.textContent = getIndex;
     });
   }
 
@@ -221,7 +231,7 @@ class Main {
     this.resetForm();
   }
 
-  removePlayer({target}) {
+  removePlayer({ target }) {
     if (!target.classList.contains("delete-btn")) return;
 
     const playerRow = target.parentElement.parentElement;

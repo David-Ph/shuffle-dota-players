@@ -27,7 +27,7 @@ export default class PlayerList {
   }
 
   shufflePlayer() {
-    const sortedPlayers = [...this.players].sort((a, b) => b.mmr - a.mmr);
+    const sortedPlayers = this.players.sort((a, b) => b.mmr - a.mmr);
 
     const firstTeam = [];
     const secondTeam = [];

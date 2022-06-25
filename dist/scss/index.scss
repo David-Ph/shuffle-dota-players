@@ -91,6 +91,10 @@ select {
   font-family: typography.$main-font;
 }
 
+.primary-text {
+  color: color.$secondary;
+}
+
 .error-msg {
   color: color.$secondary;
   display: none;
