@@ -19,7 +19,6 @@ export default class Team {
       }
       return player;
     });
-    console.log(this.players);
     this.avgMMR = this.players.reduce((a, b) => a + b.mmr, 0) / this.players.length;
   }
 }
