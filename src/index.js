@@ -283,10 +283,26 @@ class Main {
 
   copyTeamToClipboard({ target }) {
     if (target.id === TEAM_COPY_BTN.first) {
-      const text = `Team 1 is: ${this.firstTeam.getPlayerNames().join(", ")}`;
+      const text = `Team 1: ${this.firstTeam
+        .getPlayerNames()
+        .map((player) => {
+          const getIndex = this.playerList.players.findIndex(
+            (el) => el.name === player
+          );
+          return `${player} #${+getIndex + 1}`;
+        })
+        .join(", ")} | AVG MMR: ${this.firstTeam.avgMMR}`;
       copyToClipBoard(text);
     } else {
-      const text = `Team 2 is: ${this.secondTeam.getPlayerNames().join(", ")}`;
+      const text = `Team 2: ${this.secondTeam
+        .getPlayerNames()
+        .map((player) => {
+          const getIndex = this.playerList.players.findIndex(
+            (el) => el.name === player
+          );
+          return `${player} #${+getIndex + 1}`;
+        })
+        .join(", ")} | AVG MMR: ${this.firstTeam.avgMMR}`;
       copyToClipBoard(text);
     }
   }
