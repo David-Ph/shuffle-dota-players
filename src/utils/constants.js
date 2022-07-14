@@ -138,7 +138,7 @@ export const REGULAR_PLAYERS = [
   { name: "drazz", mmr: 4240, realMmr: 4440 },
   { name: "kai / Nightsong", mmr: 4000, realMmr: 3600 },
   { name: "Vincent Adultman", mmr: 3900, realMmr: 3900 },
-  { name: "Teddyizme", mmr: 5340, realMmr: 5540 },
+  { name: "Teddyizme", mmr: 5540, realMmr: 5540 },
   { name: "Nightly", mmr: 3600, realMmr: 3600 },
   { name: "Blind", mmr: 2240, realMmr: 2440 },
   { name: "Trekr", mmr: 1070, realMmr: 1270 },
