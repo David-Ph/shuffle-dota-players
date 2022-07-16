@@ -302,7 +302,7 @@ class Main {
           );
           return `${player} #${+getIndex + 1}`;
         })
-        .join(", ")} | AVG MMR: ${this.firstTeam.avgMMR}`;
+        .join(", ")} | AVG MMR: ${this.secondTeam.avgMMR}`;
       copyToClipBoard(text);
     }
   }
