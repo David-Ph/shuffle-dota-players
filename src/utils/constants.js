@@ -70,7 +70,7 @@ export const REGULAR_PLAYERS = [
   { name: "hip73", mmr: -610, realMmr: 690 },
   { name: "Cheemsuke", mmr: 4550, realMmr: 4670 },
   { name: "Divineness", mmr: 5780, realMmr: 6780 },
-  { name: "Solar Ghost", mmr: 7600, realMmr: 6200 },
+  { name: "Solar Ghost", mmr: 6200, realMmr: 6200 },
   { name: "L0hg!k / Lohgik", mmr: 3920, realMmr: 3470 },
   { name: "Momose", mmr: 3800, realMmr: 4200 },
   { name: "Jraniel", mmr: 3460, realMmr: 3660 },
